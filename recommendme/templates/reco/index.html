@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- To load all static files such as css or images -->
+{% load static %}
+<html>
+    <head>
+        <title>
+            Index
+        </title>
+        <!-- link to css stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- Adding bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Welcome!</h1>
+            <h2>Ready to get to the best movie recommendations?</h2>
+            </br>
+            <!-- Redirects to the form page -->
+            <a href="{% url 'formPage' %}"><button class="btn btn-primary">Recommend Me</button></a>
+        </div>
+    </body>
+</html>

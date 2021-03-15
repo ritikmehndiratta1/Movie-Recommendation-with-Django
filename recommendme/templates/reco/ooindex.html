@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!-- To load all static files such as css or images -->
+{% load static %}
+<html>
+    <head>
+        <title>
+            Sorry!
+        </title>
+        <!-- link to css stylesheet -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- Adding bootstrap -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Sorry!</h1>
+            </br>
+            <h2>This error can arise due to two reasons:</h2>
+            <h2>1. You entered the wrong movie name</h2>
+            <h2>2. We don't have this movie in our database.</h2>
+            </br>
+            <!-- Redirects to the form page -->
+            <h4>Ready to try again? <a href="{% url 'formPage' %}"><button class="btn btn-primary">Try Again</button></a></h2>
+            <!-- Redirects to the home page -->
+            <h4>Return to home page <a href="{% url 'index' %}"><button class="btn btn-primary">Home</button></a></h4>
+        </div>
+    </body>
+</html>
