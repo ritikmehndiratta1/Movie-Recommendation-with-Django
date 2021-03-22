@@ -7,21 +7,84 @@
             Form Page
         </title>
         <!-- link to css stylesheet -->
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel='stylesheet' href='{% static "css/style.css" %}' />
         <!-- Adding bootstrap -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
-        <div class="container">
-            <h1>Enter the name of the movie you want to know the recommandation for</h1>
+        <!-- to create a toggle switch which is actually a button with additional markup -->
+        <div class="theme-switch-wrapper offset-md-10">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+          </label>
+          <em>Enable Dark Mode!</em>
+        </div>
+        <div class="container-fluid">
+            <div class="content1"><h1>Enter the name of the movie you want to know the recommendation for:</h1></div>
             </br>
+            <center>
             <form action='{% url 'result' %}'>
                 {% csrf_token %}
-                <!-- Takes name of the movie as input -->
-                <input type="text" required name="movie_title">
-                <!-- Submit button -->
-                <input type="submit" class="btn btn-primary" name="Submit">
+                <div>
+                    <!-- Takes name of the movie as input -->    
+                    <div class="i1"><input type="text" required name="movie_title_1" placeholder= "Enter 1st movie name">
+                    </div>
+
+                    <div class="i1"><input type="text" required name="movie_title_2" placeholder= "Enter 2nd movie name">
+                    </div>
+
+                    <div class="i1"><input type="text" required name="movie_title_3" placeholder= "Enter 3rd movie name">
+                    </div>
+
+                    <!-- Submit button -->
+                    <div class="i2"><input type="submit" class="btn btn-primary btn1" name="Submit" margin=0px>
+                    </div>
+                </div>
+                
             </form>
+            </center>
+            </br>
+            <div class="content1"><h3>Here are the movies in our database
+            <button class="btn btn-primary my-button" onclick=" window.open('https://drive.google.com/file/d/1G_-6Roer8xS9Oo5rQp-HUXRLyT70xJr-/view?usp=sharing','_blank')">Movie Titles</button>
+            </h3></div>       
         </div>
+        <!-- JS script -->
+        <script>
+            /*following snippet gets added to the data-theme element that was referenced in CSS */
+            const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+            function switchTheme(e) {
+                if (e.target.checked) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+                else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }    
+            }
+
+            toggleSwitch.addEventListener('change', switchTheme, false);
+            /* use browser's localStorage to store the user preference*/
+            function switchTheme(e) {
+                if (e.target.checked) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark'); //add this
+                }
+                else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light'); //add this
+                }    
+            }
+            /* to check for a saved preference and set data-theme attribute and check/uncheck toggle swit ch */
+            const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+            if (currentTheme) {
+                document.documentElement.setAttribute('data-theme', currentTheme);
+
+                if (currentTheme === 'dark') {
+                    toggleSwitch.checked = true;
+                }
+            }    
+    </script>
     </body>
 </html>

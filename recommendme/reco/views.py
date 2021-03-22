@@ -17,11 +17,13 @@ def result(request):
 
     # lis holds the input coming from form_page.html
     lis=[]
-    lis.append(request.GET['movie_title'])
+    lis.append(request.GET['movie_title_1'])
+    lis.append(request.GET['movie_title_2'])
+    lis.append(request.GET['movie_title_3'])
     
     try:
         # context_dict stores the resulting recommendationsd according to the input
-        context_dict = model.movie_reco(lis[0])
+        context_dict = model.movie_reco(lis[0],lis[1],lis[2])
         # result.html is rendered and the results of recommendation are passed alongwith
         return render(request,'reco/result.html',context=context_dict)
     except:

@@ -1,3 +1,125 @@
-.container{
-    margin-top: 2.5%;
-};
+/*light or default mode css variables to the :root pseudo class */
+:root {
+    --primary-color: #000000;
+    --secondary-color: #000000;
+    --font-color: #000000;
+    --bg-color: #fff;
+    --heading-color: #000000;
+}
+
+/* dark mode css variables*/
+[data-theme="dark"] {
+    --primary-color: #9A97F3;
+    --secondary-color: #818cab;
+    --font-color: #e1e1ff;
+    --bg-color: #161625;
+    --heading-color:#fff;
+}
+/*css for the container div*/
+.container-fluid{
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    height: 720px;
+}
+/*adding padding and styling to the b1 div*/
+.b1{
+   padding-left: 45%;   
+   width:20%;
+   font-size: 25px;
+   font-family: 'monospace';
+}
+/*adding padding, margin and font styling to the content1 div*/
+.content1{
+    color: var(--font-color);
+    font-family: 'monospace';
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 50px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+/* styling the buttons*/
+.button{
+    font-size: 25px;
+}
+
+.btn1{
+    margin-top: 0.8%;
+    margin-bottom: 2%;
+    width:15%;
+    font-family: inherit;
+}
+.tab{
+    margin-left: 10px;
+}
+/*css for the form placeholder*/
+.i1{
+    padding-bottom: 8px;
+}
+/* css to display the button like a toggle switch*/
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+  
+    em{
+      margin-left: 10px;
+      font-size: 1rem;
+    }
+  }
+  .theme-switch {
+    height: 34px;
+    position:relative;
+    width: 60px;
+    float: right;
+  }
+  .theme-switch input {
+    display:none;
+  }
+  
+  .slider {
+    background-color: #ccc;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    padding-top: 1%;
+  }
+  
+  .slider:before {
+    background-color: #fff;
+    bottom: 4px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+  }
+  
+  input:checked + .slider {
+    background-color: #66bb6a;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  input[type="text"] {
+    font-family: monospace;
+    font-size: 25px;
+  }
+
+  .my-button{
+    font-family: inherit;
+    margin-left: 1%;
+  }
